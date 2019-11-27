@@ -6,4 +6,10 @@ const server = express();
 
 server.use(helmet());
 server.use(cors());
-server.use(express());
+server.use(express.json());
+
+server.get('/', (req,res) => {
+    res.send('Sever is working fine!')
+})
+
+module.exports = server;
