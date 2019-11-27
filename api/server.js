@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 
+const storiesRouter = require('../stories/storiesRouter')
+
 const server = express();
 
 server.use(helmet());
@@ -11,5 +13,7 @@ server.use(express.json());
 server.get('/', (req,res) => {
     res.send('Sever is working fine!')
 })
+
+server.use('api/stories', storiesRouter)
 
 module.exports = server;
